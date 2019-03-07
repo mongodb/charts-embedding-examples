@@ -18,3 +18,4 @@ exports = function(chartId) {
   
     return `${CHARTS_EMBEDDING_BASE_URL}/embed/charts?${payload}&signature=${signature}`; 
   };
+  
