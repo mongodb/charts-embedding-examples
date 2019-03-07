@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>MongoDB Charts Embedding Example (C#)</title>
+
+    <script>
+        function renderSignedAuthChart(chartId, iframeId) {
+            let embedUrlRequest = new Request(`/api/embeddedchart/${chartId}`);
+
+            fetch(embedUrlRequest)
+                .then(response => response.text())
+                .then(url => document.getElementById(iframeId).src = url);
+        }
+
+    </script>
+</head>
+<body>
+    <h1>MongoDB Charts Embedding Example (C#)</h1>
+    <iframe id="embeddedChart" width="800" height="600" frameborder="0"></iframe>
+
+    <script>
+        renderSignedAuthChart('~REPLACE~CHART_ID', 'embeddedChart'); // Replace first parameter with your Embedded Chart ID
+    </script>
+</body>
+</html>
