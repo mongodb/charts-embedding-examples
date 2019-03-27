@@ -38,7 +38,7 @@ Preparing your Chart for Embedding
 
 6. Copy the IFRAME embed code from this dialog and keep it handy
 
-7. Get the Embedding Signing Key from the Charts Admin page. If you are not a Charts Admin you
+7. Get the Embedding Signing Key from the Admin Settings page. If you are not a Charts Admin you
    will need to request this info from someone with this role.
 
 Running this Sample
