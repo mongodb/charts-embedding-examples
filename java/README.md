@@ -1,4 +1,4 @@
-﻿MongoDB Charts Embedding Example - Verified Signature Auth in C#
+MongoDB Charts Embedding Example - Verified Signature Auth in Java
 ================================================================
 
 Background
@@ -18,7 +18,7 @@ more secure — your app will generate the signature on the server side after fi
 and authorizing the user, and the URL will stop working after a specified time period.
 
 This project contains a simple sample app showing how to implement "Verified Signature" authentication
-using C# on .NET Core. Samples for other languages and platforms are provided elsewhere in this
+using Java. Samples for other languages and platforms are provided elsewhere in this
 repository.
 
 Preparing your Chart for Embedding
@@ -43,11 +43,11 @@ Preparing your Chart for Embedding
 
 Running this Sample
 -------------------
-1. Ensure you have .NET Core installed and an editor such as Visual Studio or Visual Studio Code
+1. Ensure you have a JDK installed, and Maven
 
 2. Clone the Git repository or download the code to your computer.
 
-3. Open the *Controllers\EmbeddedChartController.cs* file (server-side code), and replace the
+3. Open the *src/main/java/com/mongodb/charts/App.java* file (server-side code), and replace the
     `~REPLACE~` placeholders with the appropriate values:
     - `~REPLACE~CHARTS_EMBEDDING_BASE_URL` with the base URL of your charts instance, e.g.
        https://charts.mongodb.com/charts-foo-abcde
@@ -55,11 +55,14 @@ Running this Sample
        copied from Charts
     - `~REPLACE~EMBEDDING_SIGNING_KEY` with the Embedding Signing key you obtained above
 
-4. Open the *wwwroot\index.html* file (client-side code), and replace:
+4. Open the *src/main/resources/www/index.html* file (client-side code), and replace:
     - `~REPLACE~CHART_ID` with the value of the *id* parameter from the IFRAME snippet you copied from Charts
 
-5. Launch the application to access the page in your browser. You should see the chart embedded
-   within the sample page.
+5. Run `mvn install` within *charts-embedding*
+
+6. Launch the application by running `java -jar target/charts-embedding-1.0-with-deps.jar`
+
+7. You should see the chart embedded within the sample page on [http://localhost:4567](http://localhost:4567).
 
 Next Steps
 ----------
