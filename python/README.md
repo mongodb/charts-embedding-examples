@@ -43,7 +43,8 @@ Preparing your Chart for Embedding
 
 Running this Sample
 -------------------
-1. Ensure you have a Python 3.x installed. You can confirm with `python --version`.
+1. Ensure you have a Python 3.x installed. You can confirm with `python --version`. On some
+operating systems, Python 3 is available as the `python3` binary instead.
 
 2. Clone the Git repository or download the code to your computer.
 
