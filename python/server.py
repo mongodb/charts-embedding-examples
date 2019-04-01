@@ -38,8 +38,8 @@ class EmbeddedChartHTTPRequestHandler(BaseHTTPRequestHandler):
         # serve embedding signature
         if self.path.startswith('/api/embeddedchart/'):
             self.send_headers()
-            # TODO: parse chart ID from path
-            self.wfile.write(bytes(self.get_embedding_url('51efab7a-3b1f-4fa9-82db-8c31b83b3df9'), 'UTF-8'))
+            chartId = self.path.split('/')[-1]
+            self.wfile.write(bytes(self.get_embedding_url(chartId), 'UTF-8'))
             return
 
         # serve index.html file
