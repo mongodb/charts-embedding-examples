@@ -56,7 +56,7 @@ operating systems, Node available as the `nodejs` binary instead.
        copied from Charts
     - `~REPLACE~EMBEDDING_SIGNING_KEY` with the Embedding Signing key you obtained above
 
-4. Open the *index.html* file (client-side code), and replace:
+4. Open the *static/index.html* file (client-side code), and replace:
     - `~REPLACE~CHART_ID` with the value of the *id* parameter from the IFRAME snippet you copied from Charts
 
 5. Run `npm install` to install the package dependencies
