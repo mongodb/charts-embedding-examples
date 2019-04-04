@@ -9,7 +9,7 @@ const EXPIRY_TIME_SECONDS = 300 // Set to your preferred expiry period
 const express = require('express');
 const crypto = require('crypto');
 const app = express();
-const port = 4567;
+const port = 3000;
 
 app.get('/api/embeddedchart/:id', (req, res) => {
     const timestamp = Math.floor(Date.now() / 1000);

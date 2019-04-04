@@ -6,10 +6,10 @@
 
     <script>
         function renderSignedAuthChart(chartId, iframeId) {
-            let embedUrlRequest = new Request(`/api/embeddedchart/${chartId}`);
+            const embedUrlRequest = new Request(`/api/embeddedchart/${chartId}`);
             fetch(embedUrlRequest)
                 .then(response => response.text())
-                .then(url => document.getElementById(iframeId).src = url);
+                .then(url => {document.getElementById(iframeId).src = url});
         }
     </script>
 </head>
