@@ -11,11 +11,11 @@ first authenticating and authorizing the user, and the URL will stop working aft
 
 This repo contains several versions of a simple sample app showing how to implement "Verified Signature" authentication. Each sample shows a different
 server-side language or platform. The languages currently included in this repository are:
- * [Node](tree/master/node)
- * [C# (.NET core)](tree/master/c-sharp)
- * [Java](tree/master/java)
- * [Python 3](tree/master/python)
- * [MongoDB Stitch](tree/master/stitch)
+ * [Node](node)
+ * [C# (.NET core)](c-sharp)
+ * [Java](java)
+ * [Python 3](python)
+ * [MongoDB Stitch](stitch)
 
 If you are using a server-side platform that we do not currently have a sample for, you will still be able to implement Verified Signature authentication
 as long as your language supports hashing of strings using the HMAC algorithm. You can use the included samples to understand the inputs to the hash
