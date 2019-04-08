@@ -61,7 +61,7 @@ operating systems, Node available as the `nodejs` binary instead.
 
 5. Run `npm install` to install the package dependencies
 
-6. Run `node server.js` to start the server
+6. Run `npm start` to start the server
 
 6. You should see the chart embedded within the sample page on [http://localhost:3000](http://localhost:3000).
 
