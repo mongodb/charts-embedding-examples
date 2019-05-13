@@ -15,6 +15,7 @@ server-side language or platform. The languages currently included in this repos
  * [C# (.NET core)](c-sharp)
  * [Java](java)
  * [Python 3](python)
+ * [PHP](php)
  * [MongoDB Stitch](stitch)
 
 If you are using a server-side platform that we do not currently have a sample for, you will still be able to implement Verified Signature authentication
