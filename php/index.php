@@ -4,7 +4,7 @@ require_once('src/MongoDB/Charts.php');
 
 use \MongoDB\Charts;
 
-$embeddingKey = '1470c6bf607d4920'; //Charts Embedding Key
+$embeddingKey = '~REPLACE~EMBEDDING_SIGNING_KEY'; //Charts Embedding Key
 $baseUrl = '~REPLACE~CHARTS_EMBEDDING_BASE_URL'; // Replace with the base URL to your Charts instance, e.g. https://charts.mongodb.com/charts-foo-abcde (no trailing slash)
 $tenantId = '~REPLACE~CHARTS_TENANT_ID'; // Replace with your Charts Tenant ID from the Embed Chart snippet
 $chartId = '~REPLACE~CHART_ID'; //Chart Id to Embed

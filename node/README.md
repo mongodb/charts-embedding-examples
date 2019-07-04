@@ -56,14 +56,20 @@ operating systems, Node available as the `nodejs` binary instead.
        copied from Charts
     - `~REPLACE~EMBEDDING_SIGNING_KEY` with the Embedding Signing key you obtained above
 
-4. Open the *static/index.html* file (client-side code), and replace:
+4. Optionally, set the following variables in the same file:
+    - `EXPIRY_TIME_SECONDS` to configure the period of validity for the token
+    - `FILTER_DOCUMENT` if you want to apply an additional filter to the chart (e.g. `{ foo: { $gt: 10 }}`)
+    - `AUTOREFRESH_TIME_SECONDS` if you want the chart to automatically refresh at a predetermined interval. Note
+          that the entire chart must be reloaded with a new token before the validity period expires. 
+
+5. Open the *static/index.html* file (client-side code), and replace:
     - `~REPLACE~CHART_ID` with the value of the *id* parameter from the IFRAME snippet you copied from Charts
 
-5. Run `npm install` to install the package dependencies
+6. Run `npm install` to install the package dependencies
 
-6. Run `npm start` to start the server
+7. Run `npm start` to start the server
 
-6. You should see the chart embedded within the sample page on [http://localhost:3000](http://localhost:3000).
+8. You should see the chart embedded within the sample page on [http://localhost:3000](http://localhost:3000).
 
 Next Steps
 ----------

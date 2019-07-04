@@ -61,13 +61,19 @@ Running this Sample
        copied from Charts
     - `~REPLACE~EMBEDDING_SIGNING_KEY` with the Embedding Signing key you obtained above
 
-7. Save the Stitch function.
+7. Optionally, set the following variables in the same file:
+    - `EXPIRY_TIME_SECONDS` to configure the period of validity for the token
+    - `FILTER_DOCUMENT` if you want to apply an additional filter to the chart (e.g. `{ foo: { $gt: 10 }}`)
+    - `AUTOREFRESH_TIME_SECONDS` if you want the chart to automatically refresh at a predetermined interval. Note
+          that the entire chart must be reloaded with a new token before the validity period expires. 
 
-8. Open the *index.html* file (client-side code), and replace the `~REPLACE~` placeholders:
+8. Save the Stitch function.
+
+9. Open the *index.html* file (client-side code), and replace the `~REPLACE~` placeholders:
     - `~REPLACE~STITCH_APP_ID` with the Stitch App ID, shown in the top left of the Stitch console
     - `~REPLACE~CHART_ID` with the value of the *id* parameter from the IFRAME snippet you copied from Charts
 
-9. Open *index.html* from your local computer in a web browser. (Alternatively you can use the Stitch Hosting
+10. Open *index.html* from your local computer in a web browser. (Alternatively you can use the Stitch Hosting
    feature to host this file once you have made the above modifications).
 
 Next Steps
