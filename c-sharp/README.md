@@ -56,7 +56,7 @@ Running this Sample
     - `~REPLACE~EMBEDDING_SIGNING_KEY` with the Embedding Signing key you obtained above
 
 4. Optionally, set the following variables in the same file:
-    - `expiryTime` to configure the period of validity for the token
+    - `expiryTime` to configure the period of validity for the token (if not set, the token lasts one day)
     - `FILTER_DOCUMENT` if you want to apply an additional filter to the chart (e.g. "`{ foo: { $gt: 10 }}`")
     - `autoRefreshTime` if you want the chart to automatically refresh at a predetermined interval. Note
           that the entire chart must be reloaded with a new token before the validity period expires. 

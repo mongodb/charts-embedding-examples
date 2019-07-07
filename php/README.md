@@ -63,6 +63,6 @@ Running this Sample
           that the entire chart must be reloaded with a new token before the validity period expires. 
 
 5. Optionally, set the following variables in *src/MongoDB/Charts.php*:
-    - `$expiry` to configure the period of validity for the token
+    - `$expiry` to configure the period of validity for the token (if not set, the token lasts one day)
 
 6. Run index.php from a PHP web service, for example: `php -S localhost:8000 -t ./` ran from this php examples directory

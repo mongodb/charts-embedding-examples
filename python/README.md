@@ -57,7 +57,7 @@ operating systems, Python 3 is available as the `python3` binary instead.
     - `~REPLACE~EMBEDDING_SIGNING_KEY` with the Embedding Signing key you obtained above
 
 4. Optionally, set the following variables in the same file:
-    - `EXPIRY_TIME_SECONDS` to configure the period of validity for the token
+    - `EXPIRY_TIME_SECONDS` to configure the period of validity for the token (if not set, the token lasts one day)
     - `FILTER_DOCUMENT` if you want to apply an additional filter to the chart (e.g. `'{ foo: { $gt: 10 }}'`)
     - `AUTOREFRESH_TIME_SECONDS` if you want the chart to automatically refresh at a predetermined interval. Note
           that the entire chart must be reloaded with a new token before the validity period expires. 
