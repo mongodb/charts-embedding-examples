@@ -8,14 +8,18 @@ class Charts
     private $payload;
     private $embeddingSigningKey;
     private $tenantId;
-    private $expirey = 300; #in seconds
+    private $expiry = 300; #in seconds
     private $chartsBaseUrl;
+    private $filter;
+    private $autoRefreshSeconds;
     private $signature;
 
-    public function __construct($baseUrl, $tenantId, $signingKey){
+    public function __construct($baseUrl, $tenantId, $signingKey, $filter, $autoRefreshSeconds){
         $this->chartsBaseUrl = $baseUrl;
         $this->tenantId = $tenantId;
         $this->embeddingSigningKey = $signingKey;
+        $this->filter = $filter;
+        $this->autoRefreshSeconds = $autoRefreshSeconds;
     }
 
     private function _genSignature(){
@@ -26,7 +30,13 @@ class Charts
     private function _buildPayload($chartId){
         $fmt = 'id=%s&tenant=%s&timestamp=%d&expires-in=%d';
         $now = time();
-        $this->payload = sprintf($fmt,$chartId,$this->tenantId,$now,$this->expirey);
+        $this->payload = sprintf($fmt,$chartId,$this->tenantId,$now,$this->expiry);
+        if ($this->filter !== NULL) {
+            $this->payload .= '&filter=' . rawurlencode($this->filter);
+        }
+        if ($this->autoRefreshSeconds !== NULL) {
+            $this->payload .= '&autorefresh=' . $this->autoRefreshSeconds;
+        }
     }
 
     public function getChartUri($chartId){

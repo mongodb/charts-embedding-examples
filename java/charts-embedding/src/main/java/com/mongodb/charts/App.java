@@ -11,6 +11,9 @@ import java.time.Duration;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
+import org.apache.catalina.util.URLEncoder;
+
+
 /**
  * A simple web server which returns a signed embedding url for a given chart.
  *
@@ -20,7 +23,7 @@ public class App {
   // Replace these constants with the correct values for your Charts instance
 
   // Replace with the base URL to your Charts instance, e.g.
-  // https://charts.mongodb.com/charts-foo-abcde
+  // https://charts.mongodb.com/charts-foo-abcde (no trailing slash)
   private final static String CHARTS_EMBEDDING_BASE_URL = "~REPLACE~CHARTS_EMBEDDING_BASE_URL";
 
   // Replace with your Charts Tenant ID from the Embed Chart snippet
@@ -31,6 +34,12 @@ public class App {
 
   // Set to your preferred expiry period
   private final static Duration expiryTime = Duration.ofMinutes(5);
+
+  // Set to a MongoDB Query if you want to filter the chart, e.g. "{ foo: { $gt: 10 }}"
+  private final static String FILTER_DOCUMENT = null; 
+
+  // Set to a number of seconds >=10 if you want the chart to autorefresh, eg. Duration.ofSeconds(30)
+  private final static Duration autoRefreshTime = null; 
 
   public static void main(String[] args) {
      staticFiles.location("www");
@@ -48,17 +57,26 @@ public class App {
 
     long timestamp = System.currentTimeMillis() / 1000;
 
-    String payload = String.format("id=%s&tenant=%s&timestamp=%d&expires-in=%d", id, CHARTS_TENANT_ID, timestamp, expiryTime.getSeconds());
-    String signature = generateSignedPayload(EMBEDDING_SIGNING_KEY, payload);
-
-    StringBuilder url = new StringBuilder(CHARTS_EMBEDDING_BASE_URL)
-      .append("/embed/charts?")
+    StringBuilder payload = new StringBuilder()
       .append("id=").append(id)
       .append("&tenant=").append(CHARTS_TENANT_ID)
       .append("&timestamp=").append(timestamp)
-      .append("&expires-in=").append(expiryTime.toMillis() / 1000)
-      .append("&signature=").append(signature);
+      .append("&expires-in=").append(expiryTime.toMillis() / 1000);
 
+      if (FILTER_DOCUMENT != null) {
+        // Using URLEncoder as it converts spaces to %20 which is required for the signature to be validated
+        payload.append("&filter=").append(new URLEncoder().encode(FILTER_DOCUMENT));
+      }
+      if (autoRefreshTime != null) {
+        payload.append("&autorefresh=").append(autoRefreshTime.getSeconds());
+      }
+
+      String signature = generateSignedPayload(EMBEDDING_SIGNING_KEY, payload.toString());
+      
+      StringBuilder url = new StringBuilder(CHARTS_EMBEDDING_BASE_URL)
+        .append("/embed/charts?")
+        .append(payload)
+        .append("&signature=").append(signature);
       return url.toString();
   }
 

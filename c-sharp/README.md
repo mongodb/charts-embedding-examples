@@ -55,10 +55,16 @@ Running this Sample
        copied from Charts
     - `~REPLACE~EMBEDDING_SIGNING_KEY` with the Embedding Signing key you obtained above
 
-4. Open the *wwwroot\index.html* file (client-side code), and replace:
+4. Optionally, set the following variables in the same file:
+    - `expiryTime` to configure the period of validity for the token (if not set, the token lasts one day)
+    - `FILTER_DOCUMENT` if you want to apply an additional filter to the chart (e.g. "`{ foo: { $gt: 10 }}`")
+    - `autoRefreshTime` if you want the chart to automatically refresh at a predetermined interval. Note
+          that the entire chart must be reloaded with a new token before the validity period expires. 
+
+5. Open the *wwwroot\index.html* file (client-side code), and replace:
     - `~REPLACE~CHART_ID` with the value of the *id* parameter from the IFRAME snippet you copied from Charts
 
-5. Launch the application to access the page in your browser. You should see the chart embedded
+6. Launch the application to access the page in your browser. You should see the chart embedded
    within the sample page.
 
 Next Steps

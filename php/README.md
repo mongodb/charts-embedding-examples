@@ -48,6 +48,21 @@ Running this Sample
 
 2. php-mod-hash module is required
 
-3. Update the `$embeddingKey`, `$baseUrl`, `$tenantId`, and `$chartId` in `index.php` with your embedded Charts values
+3. Open the *index.php* file (server-side code), and replace the
+    `~REPLACE~` placeholders with the appropriate values:
+    - `~REPLACE~CHARTS_EMBEDDING_BASE_URL` with the base URL of your charts instance, e.g.
+       https://charts.mongodb.com/charts-foo-abcde
+    - `~REPLACE~CHARTS_TENANT_ID` with the value of the *tenant* parameter from the IFRAME snippet you
+       copied from Charts
+    - `~REPLACE~EMBEDDING_SIGNING_KEY` with the Embedding Signing key you obtained above
+    - `~REPLACE~CHART_ID` with the value of the *id* parameter from the IFRAME snippet you copied from Charts
 
-4. Run index.php from a PHP web service, for example: `php -S localhost:8000 -t ./` ran from this php examples directory
+4. Optionally, set the following variables in the same file:
+    - `$filter` if you want to apply an additional filter to the chart (e.g. "`{ foo: { $gt: 10 }}`")
+    - `$autoRefreshSeconds` if you want the chart to automatically refresh at a predetermined interval. Note
+          that the entire chart must be reloaded with a new token before the validity period expires. 
+
+5. Optionally, set the following variables in *src/MongoDB/Charts.php*:
+    - `$expiry` to configure the period of validity for the token (if not set, the token lasts one day)
+
+6. Run index.php from a PHP web service, for example: `php -S localhost:8000 -t ./` ran from this php examples directory
