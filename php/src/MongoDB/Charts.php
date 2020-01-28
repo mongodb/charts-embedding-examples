@@ -7,7 +7,6 @@ class Charts
     private $chartUri;
     private $payload;
     private $embeddingSigningKey;
-    private $tenantId;
     private $expiry = 300; #in seconds
     private $chartsBaseUrl;
     private $filter;
@@ -16,7 +15,6 @@ class Charts
 
     public function __construct($baseUrl, $tenantId, $signingKey, $filter, $autoRefreshSeconds){
         $this->chartsBaseUrl = $baseUrl;
-        $this->tenantId = $tenantId;
         $this->embeddingSigningKey = $signingKey;
         $this->filter = $filter;
         $this->autoRefreshSeconds = $autoRefreshSeconds;
