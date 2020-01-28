@@ -13,7 +13,7 @@ class Charts
     private $autoRefreshSeconds;
     private $signature;
 
-    public function __construct($baseUrl, $tenantId, $signingKey, $filter, $autoRefreshSeconds){
+    public function __construct($baseUrl, $signingKey, $filter, $autoRefreshSeconds){
         $this->chartsBaseUrl = $baseUrl;
         $this->embeddingSigningKey = $signingKey;
         $this->filter = $filter;
