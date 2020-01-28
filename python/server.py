@@ -23,7 +23,7 @@ class EmbeddedChartHTTPRequestHandler(BaseHTTPRequestHandler):
         AUTOREFRESH_TIME_SECONDS = None; # Set to a number >=10 if you want the chart to autorefresh
 
         timestamp = int(floor(time.time()))
-        payload = Template('id=$chartId&timestamp=$timestamp&expires-in=$expiry').substitute(chartId=chartId, tenantId=CHARTS_TENANT_ID, timestamp=timestamp, expiry=EXPIRY_TIME_SECONDS)
+        payload = Template('id=$chartId&timestamp=$timestamp&expires-in=$expiry').substitute(chartId=chartId, timestamp=timestamp, expiry=EXPIRY_TIME_SECONDS)
         if not FILTER_DOCUMENT is None:
             payload += '&filter=' + urllib.parse.quote(FILTER_DOCUMENT)
         if not AUTOREFRESH_TIME_SECONDS is None:
