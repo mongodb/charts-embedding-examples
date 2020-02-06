@@ -7,16 +7,14 @@ class Charts
     private $chartUri;
     private $payload;
     private $embeddingSigningKey;
-    private $tenantId;
     private $expiry = 300; #in seconds
     private $chartsBaseUrl;
     private $filter;
     private $autoRefreshSeconds;
     private $signature;
 
-    public function __construct($baseUrl, $tenantId, $signingKey, $filter, $autoRefreshSeconds){
+    public function __construct($baseUrl, $signingKey, $filter, $autoRefreshSeconds){
         $this->chartsBaseUrl = $baseUrl;
-        $this->tenantId = $tenantId;
         $this->embeddingSigningKey = $signingKey;
         $this->filter = $filter;
         $this->autoRefreshSeconds = $autoRefreshSeconds;

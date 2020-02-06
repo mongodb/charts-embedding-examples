@@ -52,8 +52,6 @@ Running this Sample
     `~REPLACE~` placeholders with the appropriate values:
     - `~REPLACE~CHARTS_EMBEDDING_BASE_URL` with the base URL of your charts instance, e.g.
        https://charts.mongodb.com/charts-foo-abcde
-    - `~REPLACE~CHARTS_TENANT_ID` with the value of the *tenant* parameter from the IFRAME snippet you
-       copied from Charts
     - `~REPLACE~EMBEDDING_SIGNING_KEY` with the Embedding Signing key you obtained above
     - `~REPLACE~CHART_ID` with the value of the *id* parameter from the IFRAME snippet you copied from Charts
 

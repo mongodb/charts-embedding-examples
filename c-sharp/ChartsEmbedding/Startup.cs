@@ -24,7 +24,7 @@ namespace ChartsEmbedding
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,9 +34,15 @@ namespace ChartsEmbedding
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseRouting();
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            app.UseMvc();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 }

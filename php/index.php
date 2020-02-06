@@ -6,12 +6,11 @@ use \MongoDB\Charts;
 
 $embeddingKey = '~REPLACE~EMBEDDING_SIGNING_KEY'; //Charts Embedding Key
 $baseUrl = '~REPLACE~CHARTS_EMBEDDING_BASE_URL'; // Replace with the base URL to your Charts instance, e.g. https://charts.mongodb.com/charts-foo-abcde (no trailing slash)
-$tenantId = '~REPLACE~CHARTS_TENANT_ID'; // Replace with your Charts Tenant ID from the Embed Chart snippet
 $chartId = '~REPLACE~CHART_ID'; //Chart Id to Embed
 $filter = NULL; // Set to a MongoDB Query document if you want to filter the chart, e.g. { foo: { $gt: 10 }}
 $autoRefreshSeconds = NULL; // Set to a number >=10 if you want the chart to autorefresh
 
-$charts = new Charts($baseUrl, $tenantId, $embeddingKey, $filter, $autoRefreshSeconds);
+$charts = new Charts($baseUrl, $embeddingKey, $filter, $autoRefreshSeconds);
 
 ?>
 <!DOCTYPE html>
