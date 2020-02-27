@@ -1,4 +1,4 @@
-##Running Locally
+## Running Locally
 
 Clone or download the repository, and navigate your terminal to the root directory of the demo. This should be where `index.html` is sitting.
 
