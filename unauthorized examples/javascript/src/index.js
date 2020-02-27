@@ -7,7 +7,8 @@ const sdk = new ChartsEmbedSDK({
 });
 
 const chart = sdk.createChart({
-  chartId: "d98f67cf-374b-4823-a2a8-f86e9d480065"
+  chartId: "d98f67cf-374b-4823-a2a8-f86e9d480065",
+  height: "800px"
 });
 
 async function renderChart() {

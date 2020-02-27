@@ -11,9 +11,6 @@ body {
 }
 
 .chartInfo {
-  position: absolute;
-  right: 20px;
-  top: 135px;
   font-size: 20px;
   width: 520px;
 }
