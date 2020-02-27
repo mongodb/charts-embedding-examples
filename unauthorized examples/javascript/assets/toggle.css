@@ -24,6 +24,7 @@
   background-color: #c5e4f2;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  box-shadow: #bdc3c7 0px 0px 10px 1px;
 }
 
 .slider:before {
@@ -40,10 +41,12 @@
 
 input:checked + .slider {
   background-color: #1a567e;
+  box-shadow: #2c3e50 0px 0px 10px 1px;
 }
 
 input:focus + .slider {
   box-shadow: 0 0 1px #1a567e;
+  box-shadow: #2c3e50 0px 0px 10px 1px;
 }
 
 input:checked + .slider:before {
