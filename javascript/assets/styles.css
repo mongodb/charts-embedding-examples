@@ -1,7 +1,29 @@
 html,
 body {
   height: 100%;
-  font-family: sans-serif;
+  font-family: "Heebo";
+  transition: background-color 0.5s ease;
+}
+
+.tableHeader {
+  font-weight: bold;
+  color: #89989b;
+}
+
+.chartInfo {
+  position: absolute;
+  right: 20px;
+  top: 135px;
+  font-size: 20px;
+  width: 520px;
+}
+
+td {
+  padding-left: 20px;
+}
+
+.chartsContainer {
+  display: flex;
 }
 
 main {
@@ -18,7 +40,6 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: "Heebo";
   font-weight: bold;
   color: #89989b;
 }
@@ -31,10 +52,10 @@ main {
 }
 
 #chart {
-  border: 1px solid black;
   border-top: none;
   flex-grow: 1;
   height: 100%;
+  width: 80%;
 }
 
 .theme-label {

@@ -29,10 +29,6 @@
           </select>
         </label>
         <label class="theme-label"
-          >REFRESHING IN ...
-          <span id="refreshTicker">Never</span>
-        </label>
-        <label class="theme-label"
           >THEME&nbsp&nbsp
           <label class="switch">
             <input id="themeSwitch" type="checkbox" />
@@ -50,9 +46,25 @@
           </select>
         </label>
       </div>
-      <div id="chart" />
+      <div id="chart"></div>
+      <div class="chartInfo">
+        <h3 style="text-align:center;color:#89989b;">CHART DATA</h3>
+        <table class="chartInfoTable">
+          <tr>
+            <td class="tableHeader">Current Refresh Interval</td>
+            <td id="currentRefreshInterval">None</td>
+          </tr>
+          <tr>
+            <td class="tableHeader">Current Theme</td>
+            <td id="currentTheme">Light</td>
+          </tr>
+          <tr>
+            <td class="tableHeader">Current Filter</td>
+            <td id="currentFilter">None</td>
+          </tr>
+        </table>
+      </div>
     </main>
-
     <script src="src/index.js"></script>
   </body>
 </html>
