@@ -2,14 +2,12 @@ import "regenerator-runtime/runtime";
 import $ from "jquery";
 import ChartsEmbedSDK from "@mongodb-js/charts-embed-dom";
 
-/* Replace the value of `baseUrl` if you wish to use your own data */
 const sdk = new ChartsEmbedSDK({
-  baseUrl: "https://charts.mongodb.com/charts-tomh-yfpqi"
+  baseUrl: "https://charts.mongodb.com/charts-tomh-yfpqi" // Optional: ~REPLACE~ with the Base URL from your Embed Chart dialog
 });
 
-/* Replace the value of `chartId` if you wish to use your own data */
 const chart = sdk.createChart({
-  chartId: "92f7af7d-de64-4772-9bf4-b6fd2f59ac59",
+  chartId: "92f7af7d-de64-4772-9bf4-b6fd2f59ac59", // Optional: ~REPLACE~ with the Chart ID from your Embed Chart dialog
   height: "700px"
 });
 

@@ -6,12 +6,15 @@
 
 _[See the MongoDB Charts Embedding Docs for more details](https://docs.mongodb.com/charts/saas/embedding-charts/)_
 
-MongoDB Charts allows you to create visualizations of your MongoDB data using a simple web interface. You can view the visualizations within the Charts UI, or you can use the Embedding feature to render the charts in an external web application. When you embed a chart, you can choose whether you want it to be Unauthenticated (meaning anyone who has the embed code can view the chart), or to use "Verified Signature" authentication (which checks the integrity of a signature in the URL before the chart will render).
+MongoDB Charts allows you to create visualizations of your MongoDB data using a simple web interface. You can view the visualizations within the Charts UI, or you can use the Embedding feature to render the charts in an external web application.
 
-For the "Unauthenticated" option, you can copy the provided snippet and include it in any web site; no extra steps are required. This demo will provide an example on how to do exactly that, along with showing off the various ways your application can interact with the Embedded Charts API.
+Charts can be embedded either using a simple IFRAME snippet, or by using the Charts Embedding SDK from your JavaScript code. When using the SDK, embedded charts can be either unauthenticated (meaning anyone who has the embed code can view the chart), or authenticated (whereby the user can only view the chart if they have an active authentication session linked to a Charts authentication provider).
+
+This sample shows how to use the JavaScript Embedding SDK to render unauthenticated embedded charts, along with showing off the various ways your application can interact with charts using the SDK.
 
 #### The features included in this demo are as follows:
 
+- Render an embedded chart on a web page
 - Set the charts theme to either `'light'` or `'dark'`
 - Get the charts current theme
 - Set the charts refresh interval
@@ -27,9 +30,7 @@ For the "Unauthenticated" option, you can copy the provided snippet and include 
 
 ---
 
-If you would like you use our sample data, feel free to skip to running the demo.
-
-Othwerise, do the following:
+This sample is preconfigured to render a specific chart. You can run the sample as-is, or you can modify it to render your own chart by completing the following steps:
 
 1. Log onto MongoDB Charts
 
@@ -64,10 +65,10 @@ _The following steps presume the use of npm, though yarn works as well._
 3. **Optional**
    If you do not wish to use our sample data and have completed the above steps to prepare your own chart for embedding,
    - Open the _index.js_ file (`src/index.js`)
-   - Replace the `baseUrl` string on `line 7` with the base URL you copied from the MongoDB Charts Embedded Chart menu.
-   - Replace the `chartID` string on `line 12` with the chartID you copied from the MongoDB Charts Embedded Chart menu.
+   - Replace the `baseUrl` string on with the base URL you copied from the MongoDB Charts Embedded Chart menu (look for "\~REPLACE\~" in the comments)
+   - Replace the `chartId` string on with the chart ID you copied from the MongoDB Charts Embedded Chart menu (look for "\~REPLACE\~" in the comments)
 4. Run `npm install` to install the package dependencies.
-5. Run `npm install -g parcel-bundler`to install Parcel. You may need to run `sudo npm install -g parcel-bundler` if you lack permissions.
+5. Run `npm install -g parcel-bundler` to install Parcel. You may need to run `sudo npm install -g parcel-bundler` if you lack permissions.
    - Optional Parcel.js documentation https://parceljs.org/ for more information on what this is
 6. Run `parcel index.html` to launch the sample application
 
@@ -79,6 +80,6 @@ Once you gain an understanding of the API, consider the following
 
 - Take on the optional steps to prepare and manipulate your own data source rather than the sample.
 - Think whether an unauthenticated chart is the feature you're after. Embedding iframes from Charts is a great way to showcase your data if you don't need the user to interact with the chart.
-- Consider the data you're making available, and the queries you're allowing. Look into authenticated chart embedding to see if it better suits your application.
+- Consider the data you're making available, and the queries you're allowing. If the data is sensitive and you need to ensure the charts can only be accessed by authorized people, you should look at using authenticated embedding.
 
 Happy Charting! 🚀📈
