@@ -4,12 +4,12 @@ import ChartsEmbedSDK from "@mongodb-js/charts-embed-dom";
 
 /* Replace the value of `baseUrl` if you wish to use your own data */
 const sdk = new ChartsEmbedSDK({
-  baseUrl: "https://0.0.0.0/mongodb-charts-iwfxn"
+  baseUrl: "https://charts.mongodb.com/charts-tomh-yfpqi"
 });
 
 /* Replace the value of `chartId` if you wish to use your own data */
 const chart = sdk.createChart({
-  chartId: "d98f67cf-374b-4823-a2a8-f86e9d480065",
+  chartId: "92f7af7d-de64-4772-9bf4-b6fd2f59ac59",
   height: "700px"
 });
 
