@@ -2,8 +2,6 @@
 
 ## Background
 
----
-
 📄 _[See the MongoDB Charts Embedding Docs for more details](https://docs.mongodb.com/charts/saas/embedding-charts/)_
 
 🎮 _[Play with a live demo of this sample here](https://codesandbox.io/s/charts-embeded-sdk-unauthenticated-embedded-chart-dw9hy)_
@@ -30,8 +28,6 @@ This sample shows how to use the JavaScript Embedding SDK to render unauthentica
 
 ## Preparing your Chart for Embedding
 
----
-
 This sample is preconfigured to render a specific chart. You can run the sample as-is, or you can modify it to render your own chart by completing the following steps:
 
 1. Log onto MongoDB Charts
@@ -55,8 +51,6 @@ This sample is preconfigured to render a specific chart. You can run the sample 
    - Update the query **values** in `index.html`
 
 ## Running this Sample
-
----
 
 _The following steps presume the use of npm, though yarn works as well._
 
