@@ -2,10 +2,12 @@ import "regenerator-runtime/runtime";
 import $ from "jquery";
 import ChartsEmbedSDK from "@mongodb-js/charts-embed-dom";
 
+/* Replace the value of `baseUrl` if you wish to use your own data */
 const sdk = new ChartsEmbedSDK({
   baseUrl: "https://0.0.0.0/mongodb-charts-iwfxn"
 });
 
+/* Replace the value of `chartId` if you wish to use your own data */
 const chart = sdk.createChart({
   chartId: "d98f67cf-374b-4823-a2a8-f86e9d480065",
   height: "700px"
@@ -61,9 +63,12 @@ async function renderChart() {
 
     var currentFilter = await chart.getFilter();
     var keyName = Object.keys(currentFilter)[0];
-    $("#currentFilter").text(
-      "{ " + keyName + " : " + currentFilter[keyName] + " }"
-    );
+
+    country
+      ? $("#currentFilter").text(
+          "{ " + keyName + " : " + currentFilter[keyName] + " }"
+        )
+      : $("#currentFilter").text("{ }");
   });
 
   /*
