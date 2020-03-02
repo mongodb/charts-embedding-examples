@@ -5,6 +5,7 @@
 ---
 
 📄 _[See the MongoDB Charts Embedding Docs for more details](https://docs.mongodb.com/charts/saas/embedding-charts/)_
+
 🎮 _[Play with a live demo of this sample here](https://codesandbox.io/s/charts-embeded-sdk-unauthenticated-embedded-chart-dw9hy)_
 
 MongoDB Charts allows you to create visualizations of your MongoDB data using a simple web interface. You can view the visualizations within the Charts UI, or you can use the Embedding feature to render the charts in an external web application.
