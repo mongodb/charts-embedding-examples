@@ -6,6 +6,7 @@
 
 📄 _[See the MongoDB Charts Embedding Docs for more details](https://docs.mongodb.com/charts/saas/embedding-charts/)_
 🎮 _[Play with a live demo of this sample here](https://codesandbox.io/s/charts-embeded-sdk-unauthenticated-embedded-chart-dw9hy)_
+
 MongoDB Charts allows you to create visualizations of your MongoDB data using a simple web interface. You can view the visualizations within the Charts UI, or you can use the Embedding feature to render the charts in an external web application.
 
 Charts can be embedded either using a simple IFRAME snippet, or by using the Charts Embedding SDK from your JavaScript code. When using the SDK, embedded charts can be either unauthenticated (meaning anyone who has the embed code can view the chart), or authenticated (whereby the user can only view the chart if they have an active authentication session linked to a Charts authentication provider).
@@ -67,6 +68,7 @@ _The following steps presume the use of npm, though yarn works as well._
    - Open the _index.js_ file (`src/index.js`)
    - Replace the `baseUrl` string on with the base URL you copied from the MongoDB Charts Embedded Chart menu (look for "\~REPLACE\~" in the comments)
    - Replace the `chartId` string on with the chart ID you copied from the MongoDB Charts Embedded Chart menu (look for "\~REPLACE\~" in the comments)
+   - Replace `address.country` in the `setFilter` code with your whitelisted field (look for "\~REPLACE\~" in the comments)
 4. Run `npm install` to install the package dependencies.
 5. Run `npm install -g parcel-bundler` to install Parcel. You may need to run `sudo npm install -g parcel-bundler` if you lack permissions.
    - Optional Parcel.js documentation https://parceljs.org/ for more information on what this is

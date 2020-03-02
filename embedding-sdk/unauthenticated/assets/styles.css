@@ -5,9 +5,19 @@ body {
   transition: background-color 0.5s ease;
 }
 
-.tableHeader {
+.chart-title {
+  text-align: center;
+  color: #89989b;
+}
+
+.body-content {
+  display: flex;
+}
+
+th {
   font-weight: bold;
   color: #89989b;
+  text-align: right;
 }
 
 .chartInfo {
@@ -58,4 +68,21 @@ main {
 .theme-label {
   line-height: 35px;
   padding-left: 10px;
+}
+
+span {
+  white-space: pre;
+}
+
+.dark-mode {
+  background-color: #061621;
+  color: #ffffff;
+}
+
+body span.theme-label::before {
+  content: "☀️";
+}
+
+body.dark-mode span.theme-label::before {
+  content: "🌙";
 }

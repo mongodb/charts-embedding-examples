@@ -20,21 +20,21 @@
     <main>
       <div id="nav">
         <label
-          >REFRESH CHART&nbsp&nbsp
+          ><span>REFRESH CHART </span>
           <button id="refresh">⟳</button>
         </label>
         <label
-          >REFRESH INTERVAL&nbsp&nbsp
+          ><span>REFRESH INTERVAL </span>
           <select id="refresh-interval">
             <option value="0">None</option>
             <option value="10">10 Seconds</option>
-            <option value="10">1 &nbsp&nbspMinute</option>
+            <option value="10"><span>1 Minute</span></option>
             <option value="100">10 Minutes</option>
-            <option value="600">1 &nbsp&nbspHour</option>
+            <option value="600"><span>1 Hour</span></option>
           </select>
         </label>
         <label
-          >FILTER BY COUNTRY&nbsp&nbsp
+          ><span>FILTER BY COUNTRY </span>
           <select id="country-filter">
             <option value="">--All--</option>
             <option value="Australia">Australia</option>
@@ -47,29 +47,29 @@
           </select>
         </label>
         <label class="theme-label"
-          >THEME&nbsp&nbsp
+          ><span>THEME </span>
           <label class="switch">
             <input id="themeSwitch" type="checkbox" />
             <span class="slider round"></span>
           </label>
-          <span id="themeEmoji" class="theme-label"> ☀️ </span>
+          <span id="themeEmoji" class="theme-label"></span>
         </label>
       </div>
-      <div style="display:flex">
+      <div class="body-content">
         <div id="chart"></div>
         <div class="chartInfo">
-          <h3 style="text-align:center;color:#89989b;">CHART DATA</h3>
-          <table class="chartInfoTable">
+          <h3 class="chart-title">CHART DATA</h3>
+          <table>
             <tr>
-              <td class="tableHeader">Current Refresh Interval</td>
+              <th>Current Refresh Interval</th>
               <td id="currentRefreshInterval">None</td>
             </tr>
             <tr>
-              <td class="tableHeader">Current Theme</td>
+              <th>Current Theme</th>
               <td id="currentTheme">light</td>
             </tr>
             <tr>
-              <td class="tableHeader">Current Filter</td>
+              <th>Current Filter</th>
               <td id="currentFilter">None</td>
             </tr>
           </table>

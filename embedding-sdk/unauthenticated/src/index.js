@@ -55,18 +55,15 @@ async function renderChart() {
    */
   $("#country-filter").on("change", async e => {
     const country = e.target.value;
-    country
-      ? chart.setFilter({ "address.country": country })
-      : chart.setFilter({});
-
-    var currentFilter = await chart.getFilter();
-    var keyName = Object.keys(currentFilter)[0];
-
-    country
-      ? $("#currentFilter").text(
-          "{ " + keyName + " : " + currentFilter[keyName] + " }"
-        )
-      : $("#currentFilter").text("{ }");
+    if (country) {
+      await chart.setFilter({ "address.country": country }); // Optional: ~REPLACE~ with the your own whitelisted field
+      const filter = await chart.getFilter();
+      $("#currentFilter").text(JSON.stringify(filter));
+    } else {
+      await chart.setFilter({});
+      const filter = await chart.getFilter();
+      $("#currentFilter").text(JSON.stringify(filter));
+    }
   });
 
   /*
@@ -82,14 +79,10 @@ async function renderChart() {
   $("#themeSwitch").change(async function() {
     if (this.checked) {
       await chart.setTheme("dark");
-      $("body").css("background-color", "#061621");
-      $("body").css("color", "#FFFFFF");
-      $("#themeEmoji").text("🌙");
+      document.body.classList.toggle("dark-mode", true);
     } else {
-      chart.setTheme("light");
-      $("body").css("background-color", "#FFFFFF");
-      $("body").css("color", "#000000");
-      $("#themeEmoji").text("☀️");
+      await chart.setTheme("light");
+      document.body.classList.toggle("dark-mode", false);
     }
 
     var currentTheme = await chart.getTheme();
