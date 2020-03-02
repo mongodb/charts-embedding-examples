@@ -4,6 +4,8 @@
 
 ---
 
+_[See the MongoDB Charts Embedding Docs for more details](https://docs.mongodb.com/charts/saas/embedding-charts/)_
+
 MongoDB Charts allows you to create visualizations of your MongoDB data using a simple web interface. You can view the visualizations within the Charts UI, or you can use the Embedding feature to render the charts in an external web application. When you embed a chart, you can choose whether you want it to be Unauthenticated (meaning anyone who has the embed code can view the chart), or to use "Verified Signature" authentication (which checks the integrity of a signature in the URL before the chart will render).
 
 For the "Unauthenticated" option, you can copy the provided snippet and include it in any web site; no extra steps are required. This demo will provide an example on how to do exactly that, along with showing off the various ways your application can interact with the Embedded Charts API.
