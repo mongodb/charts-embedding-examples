@@ -14,6 +14,24 @@
   text-align: center;
 }
 
+body.logged-in #login-page {
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}
+
+body.logged-in #lock::before {
+  content: "🔐";
+}
+
+body #lock::before {
+  content: "🔒";
+}
+
+body.logged-in #chart {
+  visibility: visible;
+}
+
 .hideLogin {
   visibility: hidden;
   height: 0;

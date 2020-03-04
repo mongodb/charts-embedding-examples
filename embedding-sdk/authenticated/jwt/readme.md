@@ -14,17 +14,9 @@ This sample shows how to use the JavaScript Embedding SDK to render **authentica
 
 #### The features included in this demo are as follows:
 
-- Render an embedded chart on a web page
-- Set the charts theme to either `'light'` or `'dark'`
-- Get the charts current theme
-- Set the charts refresh interval
-  - Note, the default interval is 0, implying that after rendering, the chart will never refresh.
-  - The minimum refresh interval is 10 seconds.
-- Get the charts current refresh interval
-- Manually refresh the chart
-- Set the charts current filter
-  - Note, filtering on a chart requires setting up white listed fields in MongoDB Charts. We have done this for our sample data.
-- Get the current filter on a chart
+- 📈 Render an embedded chart on a web page
+- 🔒 Only render charts to valid users
+- 🔑 Custom JWT authentication via `jsonwebtoken`
 
 ## Preparing your Chart for Embedding
 
@@ -34,21 +26,25 @@ This sample is preconfigured to render a specific chart. You can run the sample 
 
 2. If you haven't done so already, create a chart on any dashboard that you would like to embed.
 
-3. Go to the Data Sources tab, find the data source that you are using on the chart, and choose Embedding Options from the ... menu. Make sure that embedding is enabled for this data source and select '**Unauthenticated or Verified Signature**'
+3. Go to the Data Sources tab, find the data source that you are using on the chart, and choose External Sharing Options from the ... menu. Make sure that embedding is enabled for this data source and select '**Verified Signature Only**'
 
 4. Find the chart you want to embed, click the **...** menu and select **Embed Chart**
 
-5. Ensure the Unauthenticated tab is selected and turn on '**Enable unauthenticated access**'
+5. Ensure the Unauthenticated tab is selected and turn on '**Enable authenticated access**'
 
-6. Select the **Javascript SDK** option
+6. Note the Chart ID and the Chart Base URL, as you will need them for running the demo.
 
-7. Note the Chart ID and the Chart Base URL, as you will need them for running the demo.
+7. Close the menu and click on the Admin Settings button.
 
-8. **Optional**
-   In the same menu, note the **User Specified Filters** option. If you wish to try out filtering on your own dataset, you will need to whitelist a field by which to filter on. For example, our sample AirBnB dataset filters on `address.country`.
-   Furthermore, the filter related code in `src/index.js` will need to be updated to conform to the filter query you wish to run, and the options provided in `index.html` will need to be updated too. To be clear,
-   - Update the query **field** in `src/index.js`
-   - Update the query **values** in `index.html`
+8. Under Embedding Authentication Providers, press the **Add New Provider** button
+9. Fill in the details like so:
+
+![](https://i.imgur.com/8cS1iSJ.png)
+
+- Name: `Custom JWT` _Note, this is only for your convenience and can be named anything_
+- Provider: `Custom JSON Web Token`
+- Signing Algorithm: `HS256` _Note, this is the default signing algorithm for the `jsonwebtoken` library and many others_
+- Signing Key: `topsecret` _Note, this key must correlate with the key found in `config.js`_
 
 ## Running this Sample
 
@@ -63,7 +59,7 @@ _The following steps presume the use of npm, though yarn works as well._
    - Open the _index.js_ file (`src/index.js`)
    - Replace the `baseUrl` string on with the base URL you copied from the MongoDB Charts Embedded Chart menu (look for "\~REPLACE\~" in the comments)
    - Replace the `chartId` string on with the chart ID you copied from the MongoDB Charts Embedded Chart menu (look for "\~REPLACE\~" in the comments)
-   - Replace `address.country` in the `setFilter` code with your whitelisted field (look for "\~REPLACE\~" in the comments)
+   - Replace the second `chartId`string with the same ID. (look for "\~REPLACE\~" in the comments)
 4. Run `npm install` to install the package dependencies.
 5. Run `npm install -g parcel-bundler` to install Parcel. You may need to run `sudo npm install -g parcel-bundler` if you lack permissions.
    - Optional Parcel.js documentation https://parceljs.org/ for more information on what this is
@@ -76,7 +72,7 @@ This should create a local server running the Charts demo. Open a web browser an
 Once you gain an understanding of the API, consider the following
 
 - Take on the optional steps to prepare and manipulate your own data source rather than the sample.
-- Think whether an unauthenticated chart is the feature you're after. Embedding iframes from Charts is a great way to showcase your data if you don't need the user to interact with the chart.
-- Consider the data you're making available, and the queries you're allowing. If the data is sensitive and you need to ensure the charts can only be accessed by authorized people, you should look at using authenticated embedding.
+- Change the login logic to adapt to your project's security workflow.
+- Think whether an authenticated chart is the feature you're after. If you're simply looking for a way to show off your data, unauthenticated embedding simplifies the workflow even further.
 
 Happy Charting! 🚀📈
