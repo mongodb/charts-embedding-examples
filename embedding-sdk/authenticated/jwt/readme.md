@@ -64,6 +64,7 @@ _The following steps presume the use of npm, though yarn works as well._
 5. Run `npm install -g parcel-bundler` to install Parcel. You may need to run `sudo npm install -g parcel-bundler` if you lack permissions.
    - Optional Parcel.js documentation https://parceljs.org/ for more information on what this is
 6. Run `parcel index.html` to launch the sample application
+7. Run `node app.js`to launch the sample jwt server
 
 This should create a local server running the Charts demo. Open a web browser and navigate to `http://localhost:1234` in the url bar to see the sample.
 

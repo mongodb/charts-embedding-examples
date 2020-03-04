@@ -1,7 +1,5 @@
 import ChartsEmbedSDK from "@mongodb-js/charts-embed-dom";
 import "regenerator-runtime/runtime";
-import jwt from "jsonwebtoken";
-import config from "../config";
 
 document
   .getElementById("loginButton")
@@ -16,7 +14,7 @@ function getPass() {
 }
 
 async function tryLogin() {
-  if (login(getUser(), getPass())) {
+  if (await login(getUser(), getPass())) {
     document.body.classList.toggle("logged-in", true);
     await renderChart();
   }
@@ -29,21 +27,18 @@ async function tryLogin() {
   which creates the token using the users username and our previously
   defined secret called 'topsecret'.
 */
-function login(username, password) {
-  // mock a check against the database
-  let mockedUsername = "admin";
-  let mockedPassword = "password";
+async function login(username, password) {
+  const rawResponse = await fetch("http://localhost:8000/login", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ username: username, password: password })
+  });
+  const content = await rawResponse.json();
 
-  if (username && password) {
-    if (username === mockedUsername && password === mockedPassword) {
-      let token = jwt.sign({ username: username }, config.secret, {
-        expiresIn: "24h" // expires in 24 hours
-      });
-      return token;
-    }
-  } else {
-    return false;
-  }
+  return content.bearerToken;
 }
 
 /*
