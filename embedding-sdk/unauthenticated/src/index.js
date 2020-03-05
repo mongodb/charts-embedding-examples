@@ -3,11 +3,11 @@ import $ from "jquery";
 import ChartsEmbedSDK from "@mongodb-js/charts-embed-dom";
 
 const sdk = new ChartsEmbedSDK({
-  baseUrl: "https://charts.mongodb.com/charts-tomh-yfpqi" // Optional: ~REPLACE~ with the Base URL from your Embed Chart dialog
+  baseUrl: "https://charts.mongodb.com/charts-embedding-examples-wgffp" // Optional: ~REPLACE~ with the Base URL from your Embed Chart dialog
 });
 
 const chart = sdk.createChart({
-  chartId: "92f7af7d-de64-4772-9bf4-b6fd2f59ac59", // Optional: ~REPLACE~ with the Chart ID from your Embed Chart dialog
+  chartId: "735cfa75-15b8-483a-bc2e-7c6659511c7c", // Optional: ~REPLACE~ with the Chart ID from your Embed Chart dialog
   height: "700px"
 });
 
