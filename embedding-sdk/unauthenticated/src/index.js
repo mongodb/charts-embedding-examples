@@ -60,18 +60,15 @@ async function renderChart() {
     .getElementById("country-filter")
     .addEventListener("change", async e => {
       const country = e.target.value;
+      const currentFilterDOM = document.getElementById("currentFilter");
       if (country) {
         await chart.setFilter({ "address.country": country }); // Optional: ~REPLACE~ with the your own whitelisted field
         const filter = await chart.getFilter();
-        document.getElementById("currentFilter").innerText = JSON.stringify(
-          filter
-        );
+        currentFilterDOM.innerText = JSON.stringify(filter);
       } else {
         await chart.setFilter({});
         const filter = await chart.getFilter();
-        document.getElementById("currentFilter").innerText = JSON.stringify(
-          filter
-        );
+        currentFilterDOM.innerText = JSON.stringify(filter);
       }
     });
 
