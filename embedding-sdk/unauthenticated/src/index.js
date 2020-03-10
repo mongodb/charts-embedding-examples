@@ -1,5 +1,4 @@
 import "regenerator-runtime/runtime";
-import $ from "jquery";
 import ChartsEmbedSDK from "@mongodb-js/charts-embed-dom";
 
 const sdk = new ChartsEmbedSDK({
@@ -18,7 +17,7 @@ async function renderChart() {
     chart.refresh()
     Manually fetches the latest data for the chart
    */
-  $("#refresh").on("click", () => {
+  document.getElementById("refresh").addEventListener("click", () => {
     chart.refresh();
   });
 
@@ -32,15 +31,19 @@ async function renderChart() {
     Returns a number pertaining to the charts current
     refresh interval.
    */
-  $("#refresh-interval").on("change", async e => {
-    var refreshInterval = e.target.value;
-    refreshInterval
-      ? chart.setRefreshInterval(Number(refreshInterval))
-      : chart.setRefreshInterval(0);
+  document
+    .getElementById("refresh-interval")
+    .addEventListener("change", async e => {
+      var refreshInterval = e.target.value;
+      refreshInterval
+        ? chart.setRefreshInterval(Number(refreshInterval))
+        : chart.setRefreshInterval(0);
 
-    var currentRefreshInterval = await chart.getRefreshInterval();
-    $("#currentRefreshInterval").text(currentRefreshInterval);
-  });
+      var currentRefreshInterval = await chart.getRefreshInterval();
+      document.getElementById(
+        "currentRefreshInterval"
+      ).innerText = currentRefreshInterval;
+    });
 
   /*
     chart.setFilter(filter: object)
@@ -53,18 +56,21 @@ async function renderChart() {
     Returns the current filter object. The key is the field,
     and the value the query.
    */
-  $("#country-filter").on("change", async e => {
-    const country = e.target.value;
-    if (country) {
-      await chart.setFilter({ "address.country": country }); // Optional: ~REPLACE~ with the your own whitelisted field
-      const filter = await chart.getFilter();
-      $("#currentFilter").text(JSON.stringify(filter));
-    } else {
-      await chart.setFilter({});
-      const filter = await chart.getFilter();
-      $("#currentFilter").text(JSON.stringify(filter));
-    }
-  });
+  document
+    .getElementById("country-filter")
+    .addEventListener("change", async e => {
+      const country = e.target.value;
+      const currentFilterDOM = document.getElementById("currentFilter");
+      if (country) {
+        await chart.setFilter({ "address.country": country }); // Optional: ~REPLACE~ with the your own whitelisted field
+        const filter = await chart.getFilter();
+        currentFilterDOM.innerText = JSON.stringify(filter);
+      } else {
+        await chart.setFilter({});
+        const filter = await chart.getFilter();
+        currentFilterDOM.innerText = JSON.stringify(filter);
+      }
+    });
 
   /*
     chart.setTheme(theme: 'dark' | 'light');
@@ -76,18 +82,20 @@ async function renderChart() {
     The current state of the charts theme is maintained by the chart.
     Returns a string.
    */
-  $("#themeSwitch").change(async function() {
-    if (this.checked) {
-      await chart.setTheme("dark");
-      document.body.classList.toggle("dark-mode", true);
-    } else {
-      await chart.setTheme("light");
-      document.body.classList.toggle("dark-mode", false);
-    }
+  document
+    .getElementById("themeSwitch")
+    .addEventListener("change", async function() {
+      if (this.checked) {
+        await chart.setTheme("dark");
+        document.body.classList.toggle("dark-mode", true);
+      } else {
+        await chart.setTheme("light");
+        document.body.classList.toggle("dark-mode", false);
+      }
 
-    var currentTheme = await chart.getTheme();
-    $("#currentTheme").text(currentTheme);
-  });
+      var currentTheme = await chart.getTheme();
+      document.getElementById("currentTheme").innerText = currentTheme;
+    });
 }
 
 renderChart().catch(e => window.alert(e.message));

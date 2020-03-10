@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@mongodb-js/charts-embed-dom": "1.0.0-beta.2",
-    "jquery": "^3.4.1",
     "regenerator-runtime": "^0.13.3"
   },
   "devDependencies": {
