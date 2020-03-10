@@ -52,8 +52,8 @@ async function renderChart() {
   const sdk = new ChartsEmbedSDK({
     baseUrl: "https://localhost/mongodb-charts-iwfxn", // Optional: ~REPLACE~ with the Base URL from your Embed Chart dialog
     chartId: "d98f67cf-374b-4823-a2a8-f86e9d480065", // Optional: ~REPLACE~ with the Chart ID from your Embed Chart dialog
-    getUserToken: function() {
-      login(getUser(), getPass());
+    getUserToken: async function() {
+      return await login(getUser(), getPass());
     }
   });
 

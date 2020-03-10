@@ -14,7 +14,6 @@ app.use(cors());
 
 app.post("/login", (req, res) => {
   const loginDetails = req.body;
-  console.log(loginDetails);
   // mock a check against the database
   let mockedUsername = "admin";
   let mockedPassword = "password";
