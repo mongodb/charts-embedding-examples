@@ -1,7 +1,6 @@
-# Moved
+# Deprecated
 
-This repository has been archived and is no longed maintained.
-For up-to-date documentation and examples on embedding with MongoDB Charts, visit https://github.com/mongodb-js/charts-embed-sdk
+This repository contains samples for Verified Signature embedding which is now deprecated. For most new scenarios you should use the new Charts Embedding SDK. Examples on using the SDK can be found in this repo, [here](https://github.com/mongodb-js/charts-embed-sdk)
 
 ## MongoDB Charts Embedding Examples
 
